@@ -1,0 +1,87 @@
+  
+<script>
+    $(document).ready(function() {
+      $('#dataTable').DataTable({
+          dom: 'lBrftip',
+          responsive: true,
+          
+          buttons: {
+              buttons: [
+                  { extend: 'copy', className: 'btn-datatables'},
+                  { extend: 'csv', className: 'btn-datatables' },
+                  { extend: 'excel', className: 'btn-datatables' },
+                  { extend: 'print', className: 'btn-datatables' },
+              ],
+          },
+          'columnDefs': [{
+              'targets': 0,
+              'orderable': false,
+              'className': 'select-checkbox',
+              'checkboxes': {
+                  'selectRow': true
+              }
+          }],
+         
+          'order': [
+              [1, 'asc']
+          ]
+      });
+    });
+    
+    $(document).ready(function() {
+     // $('select').select2({theme:"bootstrap4"});
+    });
+    </script>
+    
+    <style  type="text/css">
+
+    .dataTables_length>label>select[name="dataTable_length"]{
+      border-radius:2rem;padding:0.6rem;
+    }
+    .dt-buttons button{
+      background:#435EBE;
+      font-weight: 40px;
+      font-size: small;
+      color:white;
+    }
+.buttons-copy:hover,.buttons-csv:hover,.buttons-excel:hover,.buttons-print:hover{
+     background:#FFFFFF;color:black;
+    }
+  .dt-buttons{
+    margin-left:1rem;margin-bottom:8px;
+  }
+  .dt-buttons button{
+    border-radius:2rem;
+  }
+  .dt-button>span{
+    font-size:0.8rem;
+    font-weight: bold;
+  }
+  #dataTable_filter input[type=search]{
+    border-radius:1rem;padding:0.8rem;
+}
+    /*For pagination  This current css is not working from here*/
+    #dataTable_paginate>span>a.paginate_button.current{
+        background:#435EBE;
+        border-radius:2rem;
+        color:#fff !important
+    }
+    
+  #dataTable_previous:hover, #dataTable_next:hover{
+    background:#435EBE;
+    border-radius:2rem;
+    color:#fff !important
+  }
+
+   /*
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover,
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    
+      border: 1px solid #979797;
+      background: none !important;
+      border-radius: 50px !important;
+       background-color: #435EBE !important;
+       color: #fff !important;
+    
+    }*/
+    </style>

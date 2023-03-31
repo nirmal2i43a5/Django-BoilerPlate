@@ -1,0 +1,29 @@
+
+
+{% if messages %}
+{% for message in messages %}
+
+
+
+{% if message.tags == 'error' %}
+
+
+  <div {% if message.tags %} class="alert alert-danger alert-dismissible show fade" {% endif %} role="alert">
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Error: {% endif %}
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+{% endif %}
+
+{% if message.tags == 'success' %}
+
+
+<div class="alert alert-success alert-dismissible show fade"  role="alert">
+  {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %} {% endif %}
+  {{ message }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+{% endfor %}
+{% endif %}
+

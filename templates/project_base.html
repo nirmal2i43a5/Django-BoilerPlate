@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Project Name{% endblock title %}</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" rel="stylesheet">
+    <!-- CSS FILES -->
+    <link rel="stylesheet" href="{% static 'assets/css/main/app.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/main/app-dark.css' %}">
+    <link rel="shortcut icon" href="{% static 'assets/images/logo/favicon.svg' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'assets/images/logo/favicon.png' %}" type="image/png">
+    <link rel="stylesheet" href="{% static 'assets/css/shared/iconly.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/pages/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/pages/datatables.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/pages/toastr/toastr.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/css/pages/invoice.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/custom_style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" 
+    integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- custom javascript -->
+   
+
+</head>
+<body>
+    
+    {% include 'includes/sidebar.html' %}
+
+
+    <div id="app">
+        
+        {% include 'includes/navbar.html' %}
+        {% include 'includes/heading.html' %}
+        {% block dashboard_content %}{% endblock dashboard_content %}
+
+        <div class="page-content">
+            <section class="row">
+                <div class="col-12 col-lg-12">
+                <!-- Dashboard stastistics start -->
+               
+                <!-- page dynamic header start-->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header text-center">
+                                  
+                                </div>
+                                <div class="card-body">
+                                    {% block content %}
+                                    {% endblock content %}
+                                    {% block main_content %}
+                                    {% endblock main_content %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- page dynamic header ends-->
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+  {% block custom_css %}{% endblock custom_css %}
+  {% block custom_js %}{% endblock custom_js %}
+  {% block javascript %}{% endblock javascript %}
+
+  <!-- JS LINKS  -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{% static 'assets/js/script.js' %}" defer type="text/javascript"></script>
+    <script src="{% static 'assets/js/app.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/extensions/toastr.min.js' %}"></script>  
+    <script src='https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js'></script>
+    <script src='https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js'></script>
+    <script src='https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js'></script>
+    <script src='https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js" integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{% static 'assets/js/extensions/datatables.js' %}"></script>
+
+<!-- JS LINKS END -->
+{% include 'includes/footer.html' %}
+
+    {% if messages %}
+    {% for message in messages %}
+    <script type=text/javascript>
+      toastr.options.progressBar = true;
+      toastr.{{ message.tags }}('{{ message }}')
+    </script>
+    {% endfor %}
+    {% endif %}
+  {% include 'includes/datatables_js.html' %}
+
+        <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/62cb8d277b967b117998eb42/1g7li6vv0';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <script>
+        let ws_scheme = window.location.protocol == "https:" ? "wss://" : "ws://";
+    
+        let endpoint = ws_scheme + window.location.host + '/ws/notification/1/';
+    
+        var socket = new WebSocket(endpoint);
+    
+        socket.onmessage = async function (e) {
+        // let abc = e.payload
+        // console.log(abc)
+        
+        let {payload} = JSON.parse(e.data);
+        console.log(typeof payload);
+        // var name = name.replace(/[^a-zA-Z0-9 ]/g, "");
+        console.log("message", payload.split('message'));
+        // console.log(message)
+        // console.log(payload[`${message}`]);
+        // console.log("aman",data.payload.count)
+        // payload = data.payload
+        // a = JSON.stringify(payload)
+        // console.log("a", JSON.parse);
+        // console.log("message", data);
+        // console.log('hello')
+        // consolelog()
+        document.querySelector('.show-message').textContent = payload.split('message')[1].replace(/[^a-zA-Z0-9 ]/g, "")
+        };
+    
+    </script>
+</body>
+
+</html>

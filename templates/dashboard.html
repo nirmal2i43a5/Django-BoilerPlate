@@ -1,0 +1,130 @@
+
+{% extends 'project_base.html' %}
+{% load static %}
+
+{% block title %}
+Dashboard
+{% endblock title %}
+{% block dashboard_content %}
+<script
+type="text/javascript"
+src="{% static 'assets/js/highcharts/highcharts.js' %}"
+></script>
+<script
+type="text/javascript"
+src="{% static 'assets/js/highcharts/modules/exporting.js' %}"
+></script>
+<script
+type="text/javascript"
+src="{% static 'assets/js/highcharts/modules/export-data.js' %}"
+></script>
+<script
+type="text/javascript"
+src="{% static 'assets/js/highcharts/modules/accessibility.js' %}"
+></script>
+    
+    {% include 'includes/alert.html' %}
+ 
+  
+    <div class="container">
+        <div class="row">
+            <!-- Enrolled course-->
+            <div class="col-xl-3 col-md-6 mb-5">
+              <div class="dash-card border-left-primary">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="title-text font-weight-bold">
+                      Assigned Courses
+                    </div>
+                    <h5>{{courses_count}}</h5>
+                  </div>
+                  <div class="col-auto">
+                    <img src="{% static 'assets/images/enroll.png' %}" alt="icon" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Completed Course -->
+            <div class="col-xl-3 col-md-6 mb-5">
+              <div class="dash-card border-left-success">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="title-text font-weight-bold">
+                      Completed Course
+                    </div>
+                    <div class="h5 mb-0 font-weight-bold">{{courses_count}}</div>
+                  </div>
+                  <div class="col-auto">
+                    <img src="{% static 'assets/images/completed.png' %}" alt="icon" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Total assignment -->
+            <div class="col-xl-3 col-md-6 mb-5">
+              <div class="dash-card border-left-info">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="title-text font-weight-bold">
+                      Total Assignment
+                    </div>
+                    <div class="h5 mb-0 font-weight-bold">{{assignments_count}}</div>
+                  </div>
+                  <div class="col-auto">
+                    <img src="{% static 'assets/images/assgn (1).png' %}" alt="icon" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Total Ebooks -->
+            <div class="col-xl-3 col-md-6 mb-5">
+              <div class="dash-card border-left-warning">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="title-text font-weight-bold">
+                      Pending Assignment
+                    </div>
+                    <div class="h5 mb-0 font-weight-bold">{{assignments_count}}</div>
+                  </div>
+                  <div class="col-auto">
+                    <img src="{% static 'assets/images/e-book.png' %}" alt="icon" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="page-content">
+        <section class="row">
+            <div class="col-12 col-lg-12">
+            <!-- Dashboard stastistics start -->
+           
+            <!-- page dynamic header start-->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header text-center">
+                              
+                            </div>
+                            <div class="card-body">
+                              Contents Here
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- page dynamic header ends-->
+            </div>
+        </section>
+    </div>
+   
+        </section>
+</div>
+
+{% endblock dashboard_content %}
+
+   
+
+  

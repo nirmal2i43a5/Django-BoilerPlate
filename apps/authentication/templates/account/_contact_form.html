@@ -1,0 +1,64 @@
+
+<!-- This page contains password reset form -->
+{% extends 'blog_base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+  Contact 
+{% endblock title %}
+  
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+ <br>
+
+    <!-- Page content -->
+    <div class="container">
+  {% include "includes/alert.html" %}
+  <br><br><br>
+
+        <div class="row justify-content-center mt-4">
+            <div class="col-lg-8">
+              <div class="card shadow-lg border-0 rounded-lg">
+  
+                <div class="card-header" style="background-color: #5E72E4;">
+                  <h2 class="text-center text-white font-weight-light my-2" >
+                    <strong>
+                    Get In Touch 
+                      
+                    </strong>
+                  </h2>
+            
+                </div>
+               
+  
+                <div class="card-body">
+                
+                    <form  method="POST">
+                        {% csrf_token %}
+                        <a name="contact"></a>
+                        <strong>
+                          <label for="nme">Name</label></strong>
+                        <input required  class="form-control" id="nme" type="text" name="name"><br>
+                          <strong>
+                            <label for="sub">Subject</label></strong>
+                        <input required class="form-control" id="sub" type="text" name="subject"><br>
+        
+                        <strong><label for="eml">Email</label></strong>
+                        <input required class="form-control" id="eml" type="text" name="email"><br>
+        
+                          <strong>   <label for="msg">Message</label></strong>
+                        <textarea required id="msg" class="form-control form-control-lg" name="message"></textarea><br>
+        
+                        <input id="submit-btn" class="btn   btn-primary mt-2" type="submit" value="SEND MESSAGE">
+                    </form>
+                 
+  
+                </div>
+  
+              </div>
+            </div>
+          </div>
+    </div>
+{% endblock content %}
