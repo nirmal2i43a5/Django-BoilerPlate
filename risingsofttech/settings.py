@@ -32,12 +32,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 DEFAULT_APPS = [
+    # 'django_admin_mazer',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     
 ]
 
@@ -46,6 +49,7 @@ CUSTOM_APPS = [
     'apps.role_permission.apps.RolePermissionConfig',
     'apps.authentication.apps.AuthenticationConfig',
     'apps.system_settings.apps.SystemSettingsConfig',
+
 ]
 
 THIRD_PARTY_APPS = [
@@ -90,6 +94,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+             "libraries": {
+                "django_admin_mazer": "risingsofttech.templatetags.django_admin_mazer",
+            },
         },
     },
 ]
